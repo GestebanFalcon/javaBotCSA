@@ -1,4 +1,4 @@
-package toilet;
+package src.main.java.localhost.toilet;
 public class Piss {
     private int pressure;
     private String ownerName;
