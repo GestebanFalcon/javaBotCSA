@@ -1,4 +1,4 @@
-package src.test.java.localhost;
+package localhost;
 
 import static org.junit.Assert.assertTrue;
 

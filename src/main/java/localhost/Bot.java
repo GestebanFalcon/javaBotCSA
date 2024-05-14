@@ -1,4 +1,4 @@
-package src.main.java.localhost;
+package localhost;
 import src.main.java.localhost.toilet.Piss;
 
 /**
