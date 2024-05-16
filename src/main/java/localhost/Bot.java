@@ -25,7 +25,7 @@ public class Bot {
      * @throws LoginException occurs when bot token is invalid.
      */
     public Bot() throws LoginException {
-        String token = "";
+        String token = System.getenv("BOT_TOKEN");
         DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(token);
         builder.setStatus(OnlineStatus.ONLINE);
         builder.setActivity(Activity.watching("GoatVision +"));
