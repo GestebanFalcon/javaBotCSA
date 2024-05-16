@@ -1,5 +1,6 @@
 package localhost;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import localhost.listeners.MessageReceivedListener;
 import localhost.listeners.ReadyListener;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -25,7 +26,8 @@ public class Bot {
      * @throws LoginException occurs when bot token is invalid.
      */
     public Bot() throws LoginException {
-        String token = System.getenv("BOT_TOKEN");
+        Dotenv dotenv = Dotenv.load();
+        String token = dotenv.get("BOT_TOKEN");
         DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(token);
         builder.setStatus(OnlineStatus.ONLINE);
         builder.setActivity(Activity.watching("GoatVision +"));
