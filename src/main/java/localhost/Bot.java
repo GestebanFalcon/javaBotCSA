@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
 import net.dv8tion.jda.api.sharding.ShardManager;
+import net.dv8tion.jda.internal.utils.JDALogger;
 
 import javax.security.auth.login.LoginException;
 
@@ -26,8 +27,10 @@ public class Bot {
      * @throws LoginException occurs when bot token is invalid.
      */
     public Bot() throws LoginException {
+        JDALogger.setFallbackLoggerEnabled(false);
         Dotenv dotenv = Dotenv.load();
         String token = dotenv.get("BOT_TOKEN");
+        System.out.println(dotenv.get("BOT_TOKEN"));
         DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(token);
         builder.setStatus(OnlineStatus.ONLINE);
         builder.setActivity(Activity.watching("GoatVision +"));
